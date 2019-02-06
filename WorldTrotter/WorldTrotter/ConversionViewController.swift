@@ -4,7 +4,7 @@
 //
 //  Created by Brandon Kimberlin on 2/6/19.
 //  Copyright © 2019 Brandon Kimberlin. All rights reserved.
-//
+//  High Point University
 
 import Foundation
 import UIKit
@@ -64,13 +64,24 @@ class ConversionViewController: UIViewController, UITextFieldDelegate {
     
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
         
+        //Set up variables for various illegal character cases
         let existingTextHasDecimalSeparator = textField.text?.range(of: ".")
         let replacementTextHasDecimalSeparator = string.range(of: ".")
         let replacementTextHasLetter = string.rangeOfCharacter(from: NSCharacterSet.letters)
+        let replacementTextHasWhiteSpace = string.rangeOfCharacter(from: NSCharacterSet.whitespacesAndNewlines)
+        let replacementTextHasSymbols = string.rangeOfCharacter(from: NSCharacterSet.symbols)
+        let replacementTextHasPunctuation = string.rangeOfCharacter(from: NSCharacterSet.punctuationCharacters)
         
+        //Check what is being entered and if it is anything other than 0-9, the first period/decimal, or a delete, nothing happens in the app
         if existingTextHasDecimalSeparator != nil, replacementTextHasDecimalSeparator != nil {
             return false
         } else if replacementTextHasLetter != nil {
+            return false
+        } else if replacementTextHasWhiteSpace != nil {
+            return false
+        } else if replacementTextHasSymbols != nil {
+            return false
+        } else if replacementTextHasPunctuation != nil, replacementTextHasDecimalSeparator == nil {
             return false
         } else {
             return true
