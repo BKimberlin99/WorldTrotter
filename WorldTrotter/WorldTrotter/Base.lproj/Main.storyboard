@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="rUE-kc-RHR">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Conversion View Controller-->
+        <!--Item-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="ConversionViewController" customModule="WorldTrotter" customModuleProvider="target" sceneMemberID="viewController">
@@ -64,7 +64,7 @@
                             <constraint firstItem="95D-Xo-mPs" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="8" id="NVW-ji-B9b"/>
                             <constraint firstItem="uwJ-mZ-Lbj" firstAttribute="centerX" secondItem="iKK-OF-JRQ" secondAttribute="centerX" id="OfV-6c-Ki2"/>
                             <constraint firstItem="sng-sh-iPt" firstAttribute="top" secondItem="iKK-OF-JRQ" secondAttribute="bottom" constant="8" id="Y7q-Lh-w9o"/>
-                            <constraint firstItem="iKK-OF-JRQ" firstAttribute="top" secondItem="95D-Xo-mPs" secondAttribute="bottom" constant="8" id="a3B-KJ-SjO"/>
+                            <constraint firstItem="iKK-OF-JRQ" firstAttribute="top" secondItem="95D-Xo-mPs" secondAttribute="bottom" constant="8" id="bSX-Fx-ayR"/>
                             <constraint firstItem="uwJ-mZ-Lbj" firstAttribute="top" secondItem="sng-sh-iPt" secondAttribute="bottom" constant="8" id="bit-qY-zla"/>
                             <constraint firstItem="iKK-OF-JRQ" firstAttribute="centerX" secondItem="95D-Xo-mPs" secondAttribute="centerX" id="c0T-VB-ecE"/>
                             <constraint firstItem="95D-Xo-mPs" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="iKo-yh-uBm"/>
@@ -75,6 +75,7 @@
                             <outletCollection property="gestureRecognizers" destination="4LZ-rz-ub2" appends="YES" id="2Wj-LE-9Yx"/>
                         </connections>
                     </view>
+                    <tabBarItem key="tabBarItem" title="Item" id="WsZ-eV-cPe"/>
                     <connections>
                         <outlet property="celsiusLabel" destination="uwJ-mZ-Lbj" id="5yZ-ls-XHU"/>
                         <outlet property="textField" destination="95D-Xo-mPs" id="i8r-UA-Of4"/>
@@ -87,6 +88,39 @@
                     </connections>
                 </tapGestureRecognizer>
             </objects>
+            <point key="canvasLocation" x="1646" y="-758"/>
+        </scene>
+        <!--Item-->
+        <scene sceneID="G6Q-du-Fiq">
+            <objects>
+                <viewController id="JlY-aT-5GY" sceneMemberID="viewController">
+                    <mapView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" id="gbE-EH-Apm">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    </mapView>
+                    <tabBarItem key="tabBarItem" title="Item" id="sDV-8X-G9v"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="e9m-KR-DJA" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1646" y="-82"/>
+        </scene>
+        <!--Tab Bar Controller-->
+        <scene sceneID="Lt5-yz-FYo">
+            <objects>
+                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="rUE-kc-RHR" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Mcd-Ok-SrY">
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="JlY-aT-5GY" kind="relationship" relationship="viewControllers" id="aRa-Cj-0UP"/>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="viewControllers" id="82T-WY-BgM"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="XEo-kl-8nb" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-31" y="-394"/>
         </scene>
     </scenes>
 </document>
