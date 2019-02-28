@@ -179,7 +179,6 @@
                             <constraint firstItem="bZA-0k-54X" firstAttribute="top" secondItem="y78-RS-ZeT" secondAttribute="top" constant="113" id="Btp-ST-f8h"/>
                             <constraint firstItem="hiJ-nh-CDH" firstAttribute="top" secondItem="T0V-yB-uU8" secondAttribute="bottom" constant="86.5" id="Le2-0J-Shg"/>
                             <constraint firstItem="T0V-yB-uU8" firstAttribute="centerX" secondItem="zGp-yO-14R" secondAttribute="centerX" id="Mh2-VH-Apw"/>
-                            <constraint firstItem="1RL-Nl-MvR" firstAttribute="top" secondItem="wlh-wW-P91" secondAttribute="bottom" constant="70" id="NVO-cH-zvO"/>
                             <constraint firstItem="Knd-vZ-bnU" firstAttribute="centerX" secondItem="zGp-yO-14R" secondAttribute="centerX" id="PaT-z3-SUv"/>
                             <constraint firstItem="1RL-Nl-MvR" firstAttribute="centerX" secondItem="zGp-yO-14R" secondAttribute="centerX" id="RGh-a8-iFe"/>
                             <constraint firstItem="y78-RS-ZeT" firstAttribute="bottom" secondItem="Knd-vZ-bnU" secondAttribute="bottom" constant="47" id="UAT-Mj-PDr"/>
@@ -198,7 +197,6 @@
                             <constraint firstItem="F8R-8A-iip" firstAttribute="leading" secondItem="y78-RS-ZeT" secondAttribute="leading" constant="54" id="qrM-rs-DUt"/>
                             <constraint firstItem="8L1-kx-cQa" firstAttribute="centerX" secondItem="zGp-yO-14R" secondAttribute="centerX" id="u0c-ZQ-td2"/>
                             <constraint firstItem="y78-RS-ZeT" firstAttribute="bottom" secondItem="Rk9-qQ-RHR" secondAttribute="bottom" constant="190" id="vFZ-N5-DHe"/>
-                            <constraint firstItem="1RL-Nl-MvR" firstAttribute="top" secondItem="wlh-wW-P91" secondAttribute="bottom" constant="70" id="vXl-kJ-k2j"/>
                             <constraint firstItem="bZA-0k-54X" firstAttribute="leading" secondItem="hiJ-nh-CDH" secondAttribute="trailing" constant="71" id="woL-9M-kFv"/>
                             <constraint firstItem="r1e-zQ-Z8a" firstAttribute="leading" secondItem="y78-RS-ZeT" secondAttribute="leading" constant="28" id="xJF-Zc-4xC"/>
                             <constraint firstItem="y78-RS-ZeT" firstAttribute="trailing" secondItem="Fyc-Ga-HcH" secondAttribute="trailing" constant="28" id="y8S-iA-4rz"/>
