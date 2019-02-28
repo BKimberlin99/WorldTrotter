@@ -112,7 +112,16 @@ class Math_Quiz_ViewController: UIViewController {
         currentQuestionIndex = 1
         score = 0
         
-        updateScore()
+        firstNumber.text = String(firstNums[currentQuestionIndex - 1])
+        symbolLabel.text = symbols[currentQuestionIndex - 1]
+        secondNumber.text = String(secondNums[currentQuestionIndex - 1])
+        
+        messageLabel.text = ""
+        scoreLabel.text = "Score: 0/0"
+        questionNumLabel.text = "Question #1"
+        specialMessageLabel.text = ""
+        
+        textField.text = ""
     }
     
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
