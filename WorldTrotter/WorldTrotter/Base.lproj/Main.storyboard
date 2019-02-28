@@ -141,16 +141,16 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wlh-wW-P91">
-                                <rect key="frame" x="55" y="369" width="50" height="21"/>
+                                <rect key="frame" x="55" y="369" width="75" height="21"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="50" id="JD8-9m-zge"/>
+                                    <constraint firstAttribute="width" constant="75" id="ERz-ck-Q2i"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Rk9-qQ-RHR">
-                                <rect key="frame" x="278" y="369" width="42" height="21"/>
+                                <rect key="frame" x="303" y="369" width="17" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
