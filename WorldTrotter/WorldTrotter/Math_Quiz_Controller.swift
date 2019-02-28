@@ -84,7 +84,7 @@ class Math_Quiz_ViewController: UIViewController {
     {
         if wasChecked == true
         {
-            if currentQuestionIndex != 10
+            if currentQuestionIndex != 11
             {
                 let firstNum: Double = firstNums[currentQuestionIndex - 1]
                 let symbol: String = symbols[currentQuestionIndex - 1]
