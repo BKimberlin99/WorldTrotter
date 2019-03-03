@@ -21,17 +21,19 @@ class Math_Quiz_ViewController: UIViewController {
     
     @IBOutlet var textField: UITextField!
     
-    let firstNums: [Double] = [3.0, 2.0, 10.0, 6.0, 8.0, 12.0, 6.0, 9.0, 11.0, 15.0]
+    //let firstNums: [Double] = [3.0, 2.0, 10.0, 6.0, 8.0, 12.0, 6.0, 9.0, 11.0, 15.0]
     
-    let symbols: [String] = ["+", "-", "*", "/", "+", "+", "*", "/", "-", "-"]
+    let symbols: [String] = ["+", "-", "*", "/"]
     
-    let secondNums: [Double] = [2.0, 2.0, 5.0, 3.0, 8.0, 7.0, 4.0, 3.0, 10.0, 9.0]
+    //let secondNums: [Double] = [2.0, 2.0, 5.0, 3.0, 8.0, 7.0, 4.0, 3.0, 10.0, 9.0]
     
-    let answers: [Double] = [5.0, 0.0, 50.0, 2.0, 16.0, 19.0, 24.0, 3.0, 1.0, 6.0]
+    //let answers: [Double] = [5.0, 0.0, 50.0, 2.0, 16.0, 19.0, 24.0, 3.0, 1.0, 6.0]
     
     var currentQuestionIndex: Int = 1
     
     var score: Int = 0
+    
+    var answer: Double = 0
     
     var scoreInfo: String = "Score: 0/0"
     
@@ -46,25 +48,37 @@ class Math_Quiz_ViewController: UIViewController {
         scoreLabel.text = scoreInfo
         specialMessageLabel.text = ""
         
-        firstNumber.text = String(firstNums[currentQuestionIndex - 1])
-        symbolLabel.text = symbols[currentQuestionIndex - 1]
-        secondNumber.text = String(secondNums[currentQuestionIndex - 1])
+        let firstNum = Int.random(in: 0 ..< 31)
+        //only allow numbers 1-30 to avoid division by 0
+        let secondNum = Int.random(in: 1 ..< 31)
+        //grab a random operator in symbol array
+        let symbol = symbols[Int.random(in: 0 ..< 4)]
         
+        firstNumber.text = String(firstNum)
+        symbolLabel.text = String(symbol)
+        secondNumber.text = String(secondNum)
+        
+        answer = doMath(Double(firstNum), Double(secondNum), symbol)
     }
+    
+    
+    
+    
+    
     
     @IBAction func Check_Answer(_ sender: UIButton)
     {
         wasChecked = true
         
         if let userAnswer = textField.text, let value = Double(userAnswer) {
-            if value == answers[currentQuestionIndex - 1] {
+            if value == answer {
                 score += 1
                 updateScore()
                 currentQuestionIndex += 1
                 messageLabel.text = "Correct!"
             }
             else {
-                messageLabel.text = "Incorrect - answer is " + String(answers[currentQuestionIndex - 1])
+                messageLabel.text = "Incorrect - answer is " + String(answer)
                 updateScore()
                 currentQuestionIndex += 1
                 
@@ -86,20 +100,47 @@ class Math_Quiz_ViewController: UIViewController {
         {
             if currentQuestionIndex != 11
             {
-                let firstNum: Double = firstNums[currentQuestionIndex - 1]
+                /*let firstNum: Double = firstNums[currentQuestionIndex - 1]
                 let symbol: String = symbols[currentQuestionIndex - 1]
                 let secondNum: Double = secondNums[currentQuestionIndex - 1]
-            
+                */
+                
+                let firstNum = Int.random(in: 0 ..< 31)
+                //only allow numbers 1-30 to avoid division by 0
+                let secondNum = Int.random(in: 1 ..< 31)
+                //grab a random operator in symbol array
+                let symbol = symbols[Int.random(in: 0 ..< 4)]
+                
                 firstNumber.text = String(firstNum)
                 symbolLabel.text = String(symbol)
                 secondNumber.text = String(secondNum)
             
+                answer = doMath(Double(firstNum), Double(secondNum), symbol)
+                
+                
                 //Empty user input box and correctness message
                 textField.text = ""
                 messageLabel.text = ""
                 wasChecked = false
             
                 questionNumLabel.text = "Question #" + String(currentQuestionIndex)
+            } else{
+                switch(score){
+                    case 0..<7:
+                        messageLabel.text = "Better luck next time!"
+                    case 7:
+                        messageLabel.text = "70% - Good work!"
+                    case 8:
+                        messageLabel.text = "80% - Great work!"
+                    case 9:
+                        messageLabel.text = "90% - Excellent!"
+                    case 10:
+                        messageLabel.text = "100% - Perfect!"
+                    default:
+                        //to get rid of xcode error saying switch must be exhaustive
+                        messageLabel.text = "error"
+                }
+                
             }
         } else {
             messageLabel.text = "Please check answer before clicking next question"
@@ -112,9 +153,17 @@ class Math_Quiz_ViewController: UIViewController {
         currentQuestionIndex = 1
         score = 0
         
-        firstNumber.text = String(firstNums[currentQuestionIndex - 1])
-        symbolLabel.text = symbols[currentQuestionIndex - 1]
-        secondNumber.text = String(secondNums[currentQuestionIndex - 1])
+        let firstNum = Int.random(in: 0 ..< 31)
+        //only allow numbers 1-30 to avoid division by 0
+        let secondNum = Int.random(in: 1 ..< 31)
+        //grab a random operator in symbol array
+        let symbol = symbols[Int.random(in: 0 ..< 4)]
+        
+        firstNumber.text = String(firstNum)
+        symbolLabel.text = String(symbol)
+        secondNumber.text = String(secondNum)
+        
+        answer = doMath(Double(firstNum), Double(secondNum), symbol)
         
         messageLabel.text = ""
         scoreLabel.text = "Score: 0/0"
@@ -154,5 +203,47 @@ class Math_Quiz_ViewController: UIViewController {
         }
         
     }
+}
+
+
+
+//functions to do math operations
+func add(_ a: Double, _ b: Double)->Double
+{
+    return a+b
+}
+
+func sub(_ a: Double, _ b: Double)->Double
+{
+    return a-b
+}
+
+func div(_ a: Double, _ b: Double)->Double
+{
+    if b != 0{
+        return a/b
+    }
+    else{
+        return 1
+    }
+}
+
+func mult(_ a: Double, _ b: Double)->Double
+{
+    return a*b
+}
+
+//Define a typealias for the prototype of the simple math functions
+typealias binOp = (Double, Double)->Double
+
+//Associates the Op values with one of the simple math functions
+let ops: [String: binOp]=["+":add, "-":sub, "*":mult, "/":div]
+
+
+//second version of doMath to return value of specified operation
+func doMath(_ a: Double, _ b: Double, _ op: String)->Double
+{
+    let opFunc=ops["\(op)"]
+    return opFunc!(a,b)
 }
 
