@@ -34,6 +34,8 @@ class Math_Quiz_ViewController: UIViewController {
     var score: Int = 0
     
     var answer: Double = 0
+
+    var answerStr: String = ""
     
     var scoreInfo: String = "Score: 0/0"
     
@@ -59,6 +61,7 @@ class Math_Quiz_ViewController: UIViewController {
         secondNumber.text = String(secondNum)
         
         answer = doMath(Double(firstNum), Double(secondNum), symbol)
+        answerStr = String(format: "%.2f", answer) //Create a string with the answer to format
     }
     
     
@@ -71,7 +74,7 @@ class Math_Quiz_ViewController: UIViewController {
         wasChecked = true
         
         if let userAnswer = textField.text, let value = Double(userAnswer) {
-            if value == answer {
+            if value == Double(answer) {
                 score += 1
                 updateScore()
                 currentQuestionIndex += 1
@@ -84,7 +87,7 @@ class Math_Quiz_ViewController: UIViewController {
                 
             }
         } else {
-            messageLabel.text = "Please enter an answer before pressing check answer"
+            messageLabel.text = "Please enter an answer \nbefore pressing check answer"
         }
     }
     
@@ -116,6 +119,7 @@ class Math_Quiz_ViewController: UIViewController {
                 secondNumber.text = String(secondNum)
             
                 answer = doMath(Double(firstNum), Double(secondNum), symbol)
+                answerStr = String(format: "%.2f", answer)
                 
                 
                 //Empty user input box and correctness message
