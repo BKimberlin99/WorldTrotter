@@ -35,7 +35,7 @@ class Math_Quiz_ViewController: UIViewController {
     
     var answer: Double = 0
 
-    var answerStr: String = ""
+    var answerStr: String = "" //Variable to hold string version of answer for formatting
     
     var scoreInfo: String = "Score: 0/0"
     
@@ -43,7 +43,7 @@ class Math_Quiz_ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        // Set up what happens on start of Math Quiz
         
         questionNumLabel.text = "Question #1"
         messageLabel.text = ""
@@ -71,6 +71,7 @@ class Math_Quiz_ViewController: UIViewController {
     
     @IBAction func Check_Answer(_ sender: UIButton)
     {
+        // Checks if user's answer is correct
         wasChecked = true
         
         if let userAnswer = textField.text, let value = Double(userAnswer) {
@@ -93,20 +94,18 @@ class Math_Quiz_ViewController: UIViewController {
     
     func updateScore()
     {
+        // Updates score depending on if the user got the question right or not
         scoreInfo = "Score: " + String(score) + "/" + String(currentQuestionIndex)
         scoreLabel.text = scoreInfo
     }
     
     @IBAction func nextQuestion(_ sender: UIButton)
     {
+        // Moves on to next question if answer has been checked
         if wasChecked == true
         {
             if currentQuestionIndex != 11
             {
-                /*let firstNum: Double = firstNums[currentQuestionIndex - 1]
-                let symbol: String = symbols[currentQuestionIndex - 1]
-                let secondNum: Double = secondNums[currentQuestionIndex - 1]
-                */
                 
                 let firstNum = Int.random(in: 0 ..< 31)
                 //only allow numbers 1-30 to avoid division by 0
