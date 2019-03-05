@@ -20,14 +20,10 @@ class Math_Quiz_ViewController: UIViewController {
     @IBOutlet var specialMessageLabel: UILabel!
     
     @IBOutlet var textField: UITextField!
-    
-    //let firstNums: [Double] = [3.0, 2.0, 10.0, 6.0, 8.0, 12.0, 6.0, 9.0, 11.0, 15.0]
+
     
     let symbols: [String] = ["+", "-", "*", "/"]
     
-    //let secondNums: [Double] = [2.0, 2.0, 5.0, 3.0, 8.0, 7.0, 4.0, 3.0, 10.0, 9.0]
-    
-    //let answers: [Double] = [5.0, 0.0, 50.0, 2.0, 16.0, 19.0, 24.0, 3.0, 1.0, 6.0]
     
     var currentQuestionIndex: Int = 1
     
@@ -50,11 +46,11 @@ class Math_Quiz_ViewController: UIViewController {
         scoreLabel.text = scoreInfo
         specialMessageLabel.text = ""
         
-        let firstNum = Int.random(in: 0 ..< 31)
+        let firstNum = arc4random_uniform(21) - 10
         //only allow numbers 1-30 to avoid division by 0
-        let secondNum = Int.random(in: 1 ..< 31)
+        let secondNum = arc4random_uniform(21) - 10
         //grab a random operator in symbol array
-        let symbol = symbols[Int.random(in: 0 ..< 4)]
+        let symbol = symbols[Int(arc4random_uniform(4))]
         
         firstNumber.text = String(firstNum)
         symbolLabel.text = String(symbol)
@@ -71,11 +67,8 @@ class Math_Quiz_ViewController: UIViewController {
     
     @IBAction func Check_Answer(_ sender: UIButton)
     {
-        // Checks if user's answer is correct
-        wasChecked = true
-        
         if let userAnswer = textField.text, let value = Double(userAnswer) {
-            if value == Double(answer) {
+            if value == Double(answerStr) {
                 score += 1
                 updateScore()
                 currentQuestionIndex += 1
@@ -90,6 +83,8 @@ class Math_Quiz_ViewController: UIViewController {
         } else {
             messageLabel.text = "Please enter an answer \nbefore pressing check answer"
         }
+        // Flag that tells that the user has checked their answer
+        wasChecked = true
     }
     
     func updateScore()
@@ -107,11 +102,11 @@ class Math_Quiz_ViewController: UIViewController {
             if currentQuestionIndex != 11
             {
                 
-                let firstNum = Int.random(in: 0 ..< 31)
+                let firstNum = arc4random_uniform(21) - 10
                 //only allow numbers 1-30 to avoid division by 0
-                let secondNum = Int.random(in: 1 ..< 31)
+                let secondNum = arc4random_uniform(21) - 10
                 //grab a random operator in symbol array
-                let symbol = symbols[Int.random(in: 0 ..< 4)]
+                let symbol = symbols[Int(arc4random_uniform(4))]
                 
                 firstNumber.text = String(firstNum)
                 symbolLabel.text = String(symbol)
@@ -156,11 +151,10 @@ class Math_Quiz_ViewController: UIViewController {
         currentQuestionIndex = 1
         score = 0
         
-        let firstNum = Int.random(in: 0 ..< 31)
-        //only allow numbers 1-30 to avoid division by 0
-        let secondNum = Int.random(in: 1 ..< 31)
+        let firstNum = arc4random_uniform(21) - 10
+        let secondNum = arc4random_uniform(21) - 10
         //grab a random operator in symbol array
-        let symbol = symbols[Int.random(in: 0 ..< 4)]
+        let symbol = symbols[Int(arc4random_uniform(4))]
         
         firstNumber.text = String(firstNum)
         symbolLabel.text = String(symbol)
